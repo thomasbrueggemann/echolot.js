@@ -1,6 +1,7 @@
 {
 	"name": "pm2-recursive",
 	"description": "Recursive PM2 JSON config file merger",
+	"preferGlobal": "true",
 	"version": "0.0.1",
 	"private": false,
 	"author": "Thomas Brüggemann",
@@ -24,6 +25,9 @@
 		"processes",
 		"merging"
 	],
+	"bin": {
+	    "pm2build": "./bin/pm2"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/tomaszbrue/pm2-recursive/issues"
