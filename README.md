@@ -17,6 +17,12 @@ And each of these _processes.json_ is an instance of a [PM2 json application dec
 
 In order to start and stop all of them at the sime time it would be nice to have a merged processes.json of all these .json files.
 
+## Installation
+
+```
+npm install pm2-build
+```
+
 ## Usage
 
 ```
