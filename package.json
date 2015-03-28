@@ -2,7 +2,7 @@
 	"name": "pm2-build",
 	"description": "Recursive PM2 JSON config file merger",
 	"preferGlobal": "true",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"directories": {
