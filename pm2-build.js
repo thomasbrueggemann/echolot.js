@@ -9,95 +9,96 @@ if (typeof String.prototype.endsWith !== "function") {
     };
 }
 
-// BUILD
-var build = function(startDir) {
+// define files to ignore
+var ignoreFiles = ["*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm", "*.php", ".jpeg", "*.gif", ".DS_Store", ".gitignore", ".npmignore", "LICENSE", "README*"];
 
-	// define files to ignore
-	var ignoreFiles = ["*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm", "*.php", ".jpeg", "*.gif", ".DS_Store", ".gitignore", ".npmignore", "LICENSE", "README*"];
+var args = process.argv;
 
-	if(startDir[startDir.length - 1] == "/") {
-		startDir = startDir.substr(0, startDir.length - 2);
-	}
+if(args.length <= 2) {
+	throw "not enough arguments: node pm2recursive.js 'startDir'";
+}
 
-	var out = "processes";
+// get the start directory from parameters
+var startDir = args[2];
 
-	// find process files in folder
-	recursive(startDir, ignoreFiles, function (err, files) {
+if(startDir[startDir.length - 1] == "/") {
+	startDir = startDir.substr(0, startDir.length - 2);
+}
 
-		if(err) throw err;
+var out = "processes";
 
-		// files is an array of filename 
-		async.map(files, function(file, done) {
+// find process files in folder
+recursive(startDir, ignoreFiles, function (err, files) {
 
-			if(!file.endsWith(".json")) return done(null, []);
+	if(err) throw err;
 
-			// open file
-			fs.readFile(file, function (err, data) {
+	// files is an array of filename 
+	async.map(files, function(file, done) {
 
-				if(err) return done(null, []);
+		if(!file.endsWith(".json")) return done(null, []);
+
+		// open file
+		fs.readFile(file, function (err, data) {
+
+			if(err) return done(null, []);
+			
+			// check if data buffer is sufficient
+			if(data && data.length > 0) {
+
+				// parse json from file
+				var parsed = JSON.parse(data.toString());
 				
-				// check if data buffer is sufficient
-				if(data && data.length > 0) {
+				// check if it has a "apps" property
+				if(parsed.apps) {
 
-					// parse json from file
-					var parsed = JSON.parse(data.toString());
-					
-					// check if it has a "apps" property
-					if(parsed.apps) {
-
-						// return all the apps declarations
-						return done(null, parsed.apps);
-					}
-					else {
-						return done(null, []);
-					}
+					// return all the apps declarations
+					return done(null, parsed.apps);
 				}
-
-				return done(null, []);
-			});
-
-		}, 
-
-		// merge the results array together
-		function(err, results) {
-
-			var apps = [];
-			for(var i in results) {
-				if(results[i].length > 0) {
-					for(var j in results[i]) {
-						apps.push(results[i][j]);
-					}
+				else {
+					return done(null, []);
 				}
 			}
 
-			var result = {
-				"apps": apps 
-			};
+			return done(null, []);
+		});
 
-			var outFile = startDir + "/" + out + ".json";
+	}, 
 
-			// check if file exists and if so, create backup
-			fs.exists(outFile, function (exists) {
-				
-				if(exists) {
-					var backupFile = startDir + "/" + out + "_" + new Date().toISOString() + ".json";
-					fse.copySync(outFile, backupFile);
+	// merge the results array together
+	function(err, results) {
+
+		var apps = [];
+		for(var i in results) {
+			if(results[i].length > 0) {
+				for(var j in results[i]) {
+					apps.push(results[i][j]);
 				}
+			}
+		}
 
-				// write result json
-				fs.writeFile(outFile, JSON.stringify(result, null, "\t"), function (err) {
-					if (err) throw err;
+		var result = {
+			"apps": apps 
+		};
+
+		var outFile = startDir + "/" + out + ".json";
+
+		// check if file exists and if so, create backup
+		fs.exists(outFile, function (exists) {
+			
+			if(exists) {
+				var backupFile = startDir + "/" + out + "_" + new Date().toISOString() + ".json";
+				fse.copySync(outFile, backupFile);
+			}
+
+			// write result json
+			fs.writeFile(outFile, JSON.stringify(result, null, "\t"), function (err) {
+				if (err) throw err;
 
 
-					console.log("\x1b[32m", "Done, check '" + outFile + "'!" ,"\x1b[0m");
-					process.exit(0);
-				});
+				console.log("\x1b[32m", "Done, check '" + outFile + "'!" ,"\x1b[0m");
+				process.exit(0);
 			});
 		});
 	});
-};
-
-module.exports = {
-	"buid": build
-}
+});
 

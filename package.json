@@ -2,7 +2,7 @@
 	"name": "pm2-build",
 	"description": "Recursive PM2 JSON config file merger",
 	"preferGlobal": "true",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"directories": {
@@ -14,7 +14,6 @@
 		"async"				: "0.9.0",
 		"fs-extra"			: "0.17.0"
 	},
-	"main": "pm2-build.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -30,7 +29,7 @@
 		"merging"
 	],
 	"bin": {
-	    "pm2build": "./bin/pm2build"
+	    "pm2build": "pm2-build.js"
 	},
 	"license": "MIT",
 	"bugs": {
