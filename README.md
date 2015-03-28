@@ -13,9 +13,9 @@ Imagine you have a nodejs folder situation on your server like this
 |__ ...
 ```
 
-And each of these _processes.json_ is an instance of a [PM2 json application declaration](https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#json-app-declaration) that hold the PM2 decralations for the app in which folder it is.
+Each of these _processes.json_ is an instance of a [PM2 json application declaration](https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#json-app-declaration) that hold the PM2 decralations for the app of its folder.
 
-In order to start and stop all of them at the sime time it would be nice to have a **merged processes.json** of all these .json files.
+In order to start and stop all of them at the same time it would be nice to have a **merged processes.json** of all these .json files.
 
 After the build the folder structure will look like
 
@@ -46,3 +46,7 @@ npm install pm2-build
 ```
 pm2build ./test
 ```
+
+## To-do
+
+* Handle errors like a grown-up
