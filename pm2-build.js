@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 var recursive 	= require("recursive-readdir");
 var async 		= require("async");
 var fs 			= require("fs");
