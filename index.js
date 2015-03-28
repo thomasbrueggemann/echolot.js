@@ -3,6 +3,12 @@ var async 		= require("async");
 var fs 			= require("fs");
 var fse 		= require("fs-extra");
 
+if (typeof String.prototype.endsWith !== "function") {
+    String.prototype.endsWith = function(suffix) {
+        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+    };
+}
+
 // define files to ignore
 var ignoreFiles = ["*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm", "*.php", ".jpeg", "*.gif", ".DS_Store", ".gitignore", ".npmignore", "LICENSE", "README*"];
 
@@ -27,6 +33,8 @@ recursive(startDir, ignoreFiles, function (err, files) {
 
 	// files is an array of filename 
 	async.map(files, function(file, done) {
+
+		if(!file.endsWith(".json")) return done(null, []);
 
 		// open file
 		fs.readFile(file, function (err, data) {
