@@ -6,6 +6,7 @@ var recursive 	= require("recursive-readdir");
 var async 		= require("async");
 var fs 			= require("fs");
 var fse 		= require("fs-extra");
+var path 		= require("path");
 
 if (typeof String.prototype.endsWith !== "function") {
     String.prototype.endsWith = function(suffix) {
@@ -19,15 +20,17 @@ var ignoreFiles = ["*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm",
 var args = process.argv;
 
 if(args.length <= 2) {
-	throw "not enough arguments: node pm2recursive.js 'startDir'";
+	throw "not enough arguments: node pm2build 'startDir'";
 }
 
 // get the start directory from parameters
 var startDir = args[2];
 
-if(startDir[startDir.length - 1] == "/") {
+if(startDir.indexOf("/") == startDir.length - 1) {
 	startDir = startDir.substr(0, startDir.length - 2);
 }
+
+startDir = path.resolve(__dirname, startDir);
 
 var out = "processes";
 

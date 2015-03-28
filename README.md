@@ -17,6 +17,24 @@ And each of these _processes.json_ is an instance of a [PM2 json application dec
 
 In order to start and stop all of them at the sime time it would be nice to have a **merged processes.json** of all these .json files.
 
+After the build the folder structure will look like
+
+```
+/var/www
+|__ app1
+|____ processes.json
+|__ app2
+|____ processes.json
+|__ ...
+|__ processes.json
+```
+
+And you could start all the processes from the _/var/www_ folder with a simple
+
+```
+pm2 start processes.json
+```
+
 ## Installation
 
 ```

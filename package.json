@@ -1,8 +1,8 @@
 {
 	"name": "pm2-build",
-	"description": "Recursive PM2 JSON config file merger",
+	"description": "Recursive PM2 json app config file merger",
 	"preferGlobal": "true",
-	"version": "0.0.5",
+	"version": "1.0.0",
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"dependencies": {
@@ -22,7 +22,9 @@
 		"recursive",
 		"json",
 		"processes",
-		"merging"
+		"merging",
+		"build",
+		"declaration"
 	],
 	"bin": {
 	    "pm2build": "pm2-build.js"
