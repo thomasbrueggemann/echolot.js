@@ -1,4 +1,4 @@
-# pm2-build
+# echolot.js
 
 ## Motivation
 
@@ -38,13 +38,13 @@ pm2 start processes.json
 ## Installation
 
 ```
-npm install pm2-build
+npm install echolot
 ```
 
 ## Usage
 
 ```
-pm2build ./test
+echolot ./test
 ```
 
 ## To-do
