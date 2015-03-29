@@ -10,6 +10,10 @@
 		"async"				: "0.9.0",
 		"fs-extra"			: "0.17.0"
 	},
+	"devDependencies": {
+		"mocha": "*",
+		"should": ">= 0.0.1"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -27,7 +31,7 @@
 		"declaration"
 	],
 	"bin": {
-	    "echolot": "echolot.js"
+	    "echolot": "cli.js"
 	},
 	"license": "MIT",
 	"bugs": {
