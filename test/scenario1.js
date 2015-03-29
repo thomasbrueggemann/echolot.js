@@ -6,7 +6,7 @@ var async   = require("async");
 
 describe("scenario1", function () {
 
-	it("should create processes.json file", function (done) {
+	it("should create merged.json file", function (done) {
 
 		// run echolot on test directory
 		echolot.run("test/scenario1", function() {
