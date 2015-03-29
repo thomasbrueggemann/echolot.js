@@ -40,7 +40,7 @@ pm2 start merged.json
 ## Installation
 
 ```
-npm install echolot
+npm install echolot -g
 ```
 
 ## Usage
