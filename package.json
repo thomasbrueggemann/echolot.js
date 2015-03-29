@@ -2,7 +2,7 @@
 	"name": "echolot",
 	"description": "Recursive PM2 json app config file merger",
 	"preferGlobal": "true",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"dependencies": {
@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tomaszbrue/echolot.git"
+		"url": "https://github.com/tomaszbrue/echolot.js.git"
 	},
 	"keywords": [
 		"pm2",
@@ -31,7 +31,7 @@
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/tomaszbrue/echolot/issues"
+		"url": "https://github.com/tomaszbrue/echolot.js/issues"
 	},
-	"homepage": "https://github.com/tomaszbrue/echolot"
+	"homepage": "https://github.com/tomaszbrue/echolot.js"
 }
