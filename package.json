@@ -6,16 +6,18 @@
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"dependencies": {
-		"recursive-readdir"	: "1.2.1",
-		"async"				: "0.9.0",
-		"fs-extra"			: "0.17.0"
+		"recursive-readdir": "1.2.1",
+		"async": "0.9.0",
+		"fs-extra": "0.17.0"
 	},
 	"devDependencies": {
 		"mocha": "*",
-		"should": ">= 0.0.1"
+		"should": ">= 0.0.1",
+		"glob": "*"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "node_modules/.bin/supervisor app",
+		"test": "node_modules/.bin/mocha -w"
 	},
 	"repository": {
 		"type": "git",

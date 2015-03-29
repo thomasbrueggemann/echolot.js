@@ -14,7 +14,7 @@ if (typeof String.prototype.endsWith !== "function") {
 var run = function(startDir, callback) {
 
 	// define files to ignore
-	var ignoreFiles = ["*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm", "*.php", ".jpeg", "*.gif", ".DS_Store", ".gitignore", ".npmignore", "LICENSE", "README*"];
+	var ignoreFiles = ["merged*.json", "*.js", "*.html", "*.txt", "*.png", "*.jpg", ".css", "*.htm", "*.php", ".jpeg", "*.gif", ".DS_Store", ".gitignore", ".npmignore", "LICENSE", "README*"];
 
 
 	if(startDir.indexOf("/") == startDir.length - 1) {
@@ -23,7 +23,7 @@ var run = function(startDir, callback) {
 
 	startDir = path.resolve(__dirname, startDir);
 
-	var out = "processes";
+	var out = "merged";
 
 	// find process files in folder
 	recursive(startDir, ignoreFiles, function (err, files) {
@@ -64,6 +64,8 @@ var run = function(startDir, callback) {
 
 		// merge the results array together
 		function(err, results) {
+
+			console.log(results.length);
 
 			var apps = [];
 			for(var i in results) {
