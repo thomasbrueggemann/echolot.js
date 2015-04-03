@@ -1,6 +1,4 @@
-# echolot.js
-
-[![Build Status](https://travis-ci.org/tomaszbrue/echolot.js.svg?branch=master)](https://travis-ci.org/tomaszbrue/echolot.js)
+# echolot.js [![Build Status](https://travis-ci.org/tomaszbrue/echolot.js.svg?branch=master)](https://travis-ci.org/tomaszbrue/echolot.js)
 
 ## Motivation
 
