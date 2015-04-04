@@ -47,6 +47,8 @@ npm install echolot -g
 echolot ./test
 ```
 
+Where *test* is the folder that contains all your PM2 apps/subfolders.
+
 ## To-do
 
 * Handle errors like a grown-up
