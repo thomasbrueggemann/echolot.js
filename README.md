@@ -44,10 +44,10 @@ npm install echolot -g
 ## Usage
 
 ```
-echolot ./test
+echolot /var/www
 ```
 
-Where *test* is the folder that contains all your PM2 apps/subfolders.
+Where */var/www* is the folder that contains all your PM2 apps/subfolders.
 
 ## To-do
 
