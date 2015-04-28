@@ -33,7 +33,7 @@ var run = function(startDir, callback) {
 		// files is an array of filename 
 		async.map(files, function(file, done) {
 
-			if(!file.endsWith(".json")) return done(null, []);
+			if(!file.endsWith(".json") || file.indexOf("node_modules") >= 0) return done(null, []);
 
 			// open file
 			fs.readFile(file, function (err, data) {
