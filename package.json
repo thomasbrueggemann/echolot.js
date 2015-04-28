@@ -2,7 +2,7 @@
 	"name": "echolot",
 	"description": "Recursive PM2 json app config file merger",
 	"preferGlobal": "true",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"private": false,
 	"author": "Thomas Brüggemann",
 	"dependencies": {
@@ -32,7 +32,7 @@
 		"declaration"
 	],
 	"bin": {
-	    "echolot": "cli.js"
+		"echolot": "cli.js"
 	},
 	"license": "MIT",
 	"bugs": {
