@@ -1,4 +1,4 @@
-# echolot.js [![Build Status](https://travis-ci.org/tomaszbrue/echolot.js.svg?branch=master)](https://travis-ci.org/tomaszbrue/echolot.js) [![npm](https://img.shields.io/badge/npm-1.0.3-blue.svg)](https://www.npmjs.com/package/echolot)
+# echolot.js [![Build Status](https://travis-ci.org/thomasbrueggemann/echolot.js.svg?branch=master)](https://travis-ci.org/tomaszbrue/echolot.js) [![npm](https://img.shields.io/badge/npm-1.0.3-blue.svg)](https://www.npmjs.com/package/echolot)
 
 ## Motivation
 
